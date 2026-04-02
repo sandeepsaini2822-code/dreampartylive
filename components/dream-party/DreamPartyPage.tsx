@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import { useCart } from "@/lib/dream-party-hooks"
 import { CheckoutData, MenuItem } from "@/lib/dream-party-types"
+import FounderSection from "./FounderSection"
 import Navbar from "./Navbar"
 import HeroSection from "./HeroSection"
 import ServicesStrip from "./ServicesStrip"
@@ -12,7 +13,7 @@ import ContactSection from "./ContactSection"
 import Footer from "./Footer"
 import CartDrawer from "./CartDrawer"
 import PaymentModal from "./PaymentModal"
-import FounderSection from "./FounderSection"
+
 
 export default function DreamPartyPage() {
   const { cart, add, remove, update, total, count, clear } = useCart()
