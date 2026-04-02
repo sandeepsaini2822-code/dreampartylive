@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react"
 import { useCart } from "@/lib/dream-party-hooks"
 import { CheckoutData, MenuItem } from "@/lib/dream-party-types"
 import FounderSection from "./FounderSection"
+
 import Navbar from "./Navbar"
 import HeroSection from "./HeroSection"
 import ServicesStrip from "./ServicesStrip"
