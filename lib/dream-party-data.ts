@@ -1,0 +1,115 @@
+import { MenuItem } from "./dream-party-types";
+
+export const WHATSAPP_NUMBER = "919057615719";
+
+export const MENU_ITEMS: MenuItem[] = [
+  {
+    id: 1,
+    category: "Burgers",
+    tag: "Bestseller",
+    name: "Dream Party Special Burger",
+    desc: "Double smash patty, aged cheddar, caramelized onions, dream sauce, brioche bun.",
+    price: 120,
+    img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80",
+  },
+  {
+    id: 2,
+    category: "Burgers",
+    tag: "Protien-Packed",
+    name: "Paneer Royale Burger",
+    desc: "San Marzano tomato, buffalo mozzarella, fresh basil, extra-virgin olive oil.",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80",
+  },
+  {
+    id: 3,
+    category: "Burgers",
+    tag: "Classic",
+    name: "Double Aloo Tikki cheese Burger",
+    desc: "Hand-cut golden fries, truffle oil, parmesan dust, rosemary salt, garlic aioli.",
+    price: 90,
+    img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=80",
+  },
+  {
+    id: 4,
+    category: "Burgers",
+    tag: "Street Special",
+    name: "Double cheese Burger",
+    desc: "Fried chicken tender, sriracha slaw, pickles, gold mayo, toasted tortilla.",
+    price: 80,
+    img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80",
+  },
+  {
+    id: 5,
+    category: "Burgers",
+    tag: "Veggie",
+    name: "Cheese Burger",
+    desc: "Crispy veggie patty, avocado, sun-dried tomato, pesto aioli, toasted sesame bun.",
+    price: 70,
+    img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80",
+  },
+  {
+    id: 6,
+    category: "Burgers",
+    tag: "Regular",
+    name: "Aloo Tikki Burger",
+    desc: "Warm chocolate lava cake, vanilla bean ice cream, gold dust, berry coulis.",
+    price: 50,
+    img: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80",
+  },
+  {
+    id: 7,
+    category: "Pizza",
+    tag: "Spicy",
+    name: "Dream Party Special Pizza",
+    desc: "Smoky BBQ base, pulled chicken, jalapeños, red onion, mozzarella, chilli honey.",
+    price: 200,
+    img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
+  },
+ {
+    id: 8,
+    category: "Pizza",
+    tag: "Spicy",
+    name: "Paneer Pizza",
+    desc: "Smoky BBQ base, pulled chicken, jalapeños, red onion, mozzarella, chilli honey.",
+    price: 180,
+    img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
+  },
+  {
+    id: 9,
+    category: "Pizza",
+    tag: "Spicy",
+    name: "Sweet Corn Pizza",
+    desc: "Smoky BBQ base, pulled chicken, jalapeños, red onion, mozzarella, chilli honey.",
+    price: 160,
+    img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
+  },
+  {
+    id: 10,
+    category: "Pizza",
+    tag: "Spicy",
+    name: "Margherita Pizza",
+    desc: "Smoky BBQ base, pulled chicken, jalapeños, red onion, mozzarella, chilli honey.",
+    price: 150,
+    img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
+  },
+  {
+    id: 11,
+    category: "Pizza",
+    tag: "Spicy",
+    name: "OTC Pizza",
+    desc: "Smoky BBQ base, pulled chicken, jalapeños, red onion, mozzarella, chilli honey.",
+    price: 130,
+    img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
+  },
+];
+
+export const GALLERY = [
+  { img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=80", label: "Signature Burgers" },
+  { img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80", label: "Artisan Pizzas" },
+  { img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&q=80", label: "Cozy Dine-In" },
+  { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb1AyntGve9nuWkJT6IGn1uylorKLEFVtqCA&s", label: "Dream Shakes" },
+  { img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=80", label: "Golden Fries" },
+];
+
+export const CATEGORIES: string[] = ["All", "Burgers", "Pizza","Sandwiches","Chinese & Snacks", "Desserts&Cakes", "Drinks"];
