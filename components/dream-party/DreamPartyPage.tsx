@@ -123,7 +123,7 @@ export default function DreamPartyPage() {
 
       <HeroSection />
       <ServicesStrip />
-      <FounderSection />
+     
 
       {loading ? (
         <div className="px-6 py-10 text-center">Loading menu...</div>
@@ -146,6 +146,7 @@ export default function DreamPartyPage() {
 
       <GallerySection />
       <ContactSection />
+      <FounderSection />
       <Footer />
 
       <CartDrawer
