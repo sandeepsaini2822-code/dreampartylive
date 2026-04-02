@@ -125,7 +125,6 @@ export default function DreamPartyPage() {
 
       <HeroSection />
       <ServicesStrip />
-      <h1 style={{color: "red"}}>THIS IS NEW BUILD</h1>
 
       {loading ? (
         <div className="px-6 py-10 text-center">Loading menu...</div>
