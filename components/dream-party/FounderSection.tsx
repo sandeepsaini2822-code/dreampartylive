@@ -7,8 +7,8 @@ import Reveal from "./Reveal";
 export default function FounderSection() {
   const { isMobile, isTablet } = useViewport();
 
-  const pagePad = isMobile ? 14 : isTablet ? 24 : 48;
-  const sectionPadY = isMobile ? 52 : isTablet ? 76 : 100;
+  const pagePad = isMobile ? 10 : isTablet ? 20 : 40;
+  const sectionPadY = isMobile ? 52 : isTablet ? 76 : 90;
 
   return (
     <section
@@ -33,17 +33,15 @@ export default function FounderSection() {
           <div
             style={{
               ...PANEL_SOFT,
-              padding: isMobile ? 14 : isTablet ? 18 : 22,
+              padding: 0,
               width: "100%",
             }}
           >
             <div
               style={{
-                width: "100%",
                 overflow: "hidden",
                 borderRadius: isMobile ? 14 : 18,
                 border: BORDER_MID,
-                background: "rgba(255,255,255,0.03)",
               }}
             >
               <img
@@ -51,7 +49,7 @@ export default function FounderSection() {
                 alt="Founder of Dream Party"
                 style={{
                   width: "100%",
-                  height: isMobile ? 260 : isTablet ? 380 : 445,
+                  height: "100%",
                   objectFit: "cover",
                   objectPosition: "center top",
                   display: "block",
@@ -83,8 +81,8 @@ export default function FounderSection() {
                 fontSize: isMobile
                   ? "1.85rem"
                   : isTablet
-                  ? "2.5rem"
-                  : "clamp(2.5rem, 4vw, 3.8rem)",
+                    ? "2.5rem"
+                    : "clamp(2.5rem, 4vw, 3.8rem)",
                 lineHeight: 1.15,
                 color: G.cream,
                 marginBottom: 14,

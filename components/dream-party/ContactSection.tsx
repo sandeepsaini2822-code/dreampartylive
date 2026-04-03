@@ -79,12 +79,12 @@ export default function ContactSection() {
 
   const handleChange =
     (field: keyof ReservationForm) =>
-    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-      setForm((prev) => ({
-        ...prev,
-        [field]: e.target.value,
-      }));
-    };
+      (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        setForm((prev) => ({
+          ...prev,
+          [field]: e.target.value,
+        }));
+      };
 
   const resetForm = () => {
     setForm({
@@ -143,11 +143,12 @@ export default function ContactSection() {
     minHeight: 48,
   };
 
-  const contactItems: [string, string, string][] = [
+  const contactItems: [string, string, string, string?][] = [
     ["📍", "Location", "Near Govt. Hospital, Losal, 332025"],
     ["📞", "Call / Order", "+91 9057615719"],
     ["🕐", "Hours", "Mon – Sun: 10:00 AM – 10:00 PM"],
     ["📧", "Email", "akashsaini331@gmail.com"],
+    ["📸", "Follow Us On Instagram", "@dreampartylosal", "https://www.instagram.com/dream_party_cake_losal/"],
   ];
 
   return (
@@ -190,8 +191,8 @@ export default function ContactSection() {
                 fontSize: isMobile
                   ? "1.85rem"
                   : isTablet
-                  ? "2.45rem"
-                  : "clamp(2.4rem,4vw,3.5rem)",
+                    ? "2.45rem"
+                    : "clamp(2.4rem,4vw,3.5rem)",
                 color: G.cream,
                 lineHeight: 1.12,
                 margin: 0,
@@ -220,20 +221,20 @@ export default function ContactSection() {
 
           <div
             style={{
-              marginTop: isMobile ? 26 : 38,
+              marginTop: isMobile ? 20 : 32,
               display: "grid",
               gridTemplateColumns: isMobile ? "1fr" : "1fr",
-              gap: isMobile ? 16 : 20,
+              gap: isMobile ? 10 : 14,
             }}
           >
-            {contactItems.map(([icon, title, val], i) => (
+            {contactItems.map(([icon, title, val, link], i) => (
               <Reveal key={title} delay={0.2 + i * 0.08}>
                 <div
                   style={{
                     display: "flex",
-                    gap: isMobile ? 14 : 18,
+                    gap: isMobile ? 10 : 14,
                     alignItems: "flex-start",
-                    padding: isMobile ? "14px" : "16px 0",
+                    padding: isMobile ? "10px" : "12px 0",
                     borderRadius: isMobile ? 14 : 0,
                     background: isMobile ? "rgba(255,255,255,0.02)" : "transparent",
                   }}
@@ -281,7 +282,21 @@ export default function ContactSection() {
                         wordBreak: "break-word",
                       }}
                     >
-                      {val}
+                      {link ? (
+                        <a
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            color: G.creamDim,
+                            textDecoration: "none",
+                          }}
+                        >
+                          {val}
+                        </a>
+                      ) : (
+                        val
+                      )}
                     </div>
                   </div>
                 </div>
@@ -398,8 +413,8 @@ export default function ContactSection() {
                 {isSending
                   ? "Sending..."
                   : isSent
-                  ? "✓ Request Sent!"
-                  : "Confirm Reservation"}
+                    ? "✓ Request Sent!"
+                    : "Confirm Reservation"}
               </button>
             </div>
           </div>

@@ -7,12 +7,12 @@ export default function HeroSection() {
   const { isMobile, isTablet } = useViewport();
 
   const pagePad = isMobile ? 16 : isTablet ? 28 : 48;
-  const headingGap = isMobile ? 18 : 28;
+  const headingGap = isMobile ? 12 : 28; // ✅ reduced from 18 → 12 on mobile
 
   return (
     <section
       style={{
-        minHeight: isMobile ? "92svh" : "100vh",
+        minHeight: isMobile ? "75svh" : "100vh", // ✅ already fixed
         position: "relative",
         display: "flex",
         alignItems: "center",
@@ -37,18 +37,23 @@ export default function HeroSection() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse 70% 90% at 50% 60%, rgba(15,12,10,0.18) 0%, rgba(15,12,10,0.9) 75%)",
+          background:
+            "radial-gradient(ellipse 70% 90% at 50% 60%, rgba(15,12,10,0.18) 0%, rgba(15,12,10,0.9) 75%)",
         }}
       />
-      <div style={{ position: "absolute", inset: 0, background: G.gradHeroOverlay }} />
+      <div
+        style={{ position: "absolute", inset: 0, background: G.gradHeroOverlay }}
+      />
 
       <div
         style={{
           textAlign: "center",
           position: "relative",
           zIndex: 2,
-          paddingInline: pagePad,   // ✅ clean, explicit
-          paddingTop: 100,           // ✅ no redundant ternary
+          paddingTop: isMobile ? 72 : isTablet ? 88 : 100,
+          paddingBottom: 0,
+          paddingLeft: pagePad,
+          paddingRight: pagePad,
           width: "100%",
           maxWidth: 1200,
         }}
@@ -64,7 +69,7 @@ export default function HeroSection() {
             letterSpacing: isMobile ? "0.18em" : "0.35em",
             textTransform: "uppercase",
             padding: isMobile ? "6px 14px" : "7px 24px",
-            marginBottom: isMobile ? 18 : 28,
+            marginBottom: isMobile ? 14 : 28, // ✅ reduced from 18 → 14 on mobile
             borderRadius: 999,
           }}
         >
@@ -74,7 +79,11 @@ export default function HeroSection() {
         <h1
           style={{
             fontFamily: "Playfair Display, serif",
-            fontSize: isMobile ? "3.3rem" : isTablet ? "5.5rem" : "clamp(4rem,11vw,10rem)",
+            fontSize: isMobile
+              ? "2.6rem"          // ✅ reduced from 3.3rem → 2.6rem on mobile
+              : isTablet
+                ? "5.5rem"
+                : "clamp(4rem,11vw,10rem)",
             lineHeight: 0.9,
             fontWeight: 900,
             color: G.cream,
@@ -100,7 +109,7 @@ export default function HeroSection() {
 
         <div
           style={{
-            marginTop: isMobile ? 32 : 48,
+            marginTop: isMobile ? 22 : 48, // ✅ reduced from 32 → 22 on mobile
             display: "flex",
             gap: 14,
             justifyContent: "center",

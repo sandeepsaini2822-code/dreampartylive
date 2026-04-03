@@ -15,6 +15,11 @@ export type CartItem = MenuItem & {
   qty: number;
 };
 
+export type GalleryItem = {
+  id: number
+  img: string
+  title?: string
+}
 export interface RevealProps {
   children: ReactNode;
   delay?: number;

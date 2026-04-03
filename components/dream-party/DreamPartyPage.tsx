@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { useCart } from "@/lib/dream-party-hooks"
-import { CheckoutData, MenuItem } from "@/lib/dream-party-types"
+import { CheckoutData, MenuItem, GalleryItem } from "@/lib/dream-party-types"
 import FounderSection from "./FounderSection"
 
 import Navbar from "./Navbar"
@@ -21,6 +21,7 @@ export default function DreamPartyPage() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([])
 
   const [cartOpen, setCartOpen] = useState(false)
   const [payOpen, setPayOpen] = useState(false)
@@ -40,17 +41,14 @@ export default function DreamPartyPage() {
     },
   })
 
+  // ── Fetch menu items ──
   useEffect(() => {
     async function loadMenu() {
       try {
         setLoading(true)
         setError("")
-
         const res = await fetch("/api/menu", { cache: "no-store" })
-        if (!res.ok) {
-          throw new Error("Failed to fetch menu")
-        }
-
+        if (!res.ok) throw new Error("Failed to fetch menu")
         const data: MenuItem[] = await res.json()
         setMenuItems(data)
       } catch (err) {
@@ -60,8 +58,22 @@ export default function DreamPartyPage() {
         setLoading(false)
       }
     }
-
     loadMenu()
+  }, [])
+
+  // ── Fetch gallery items ──
+  useEffect(() => {
+    async function loadGallery() {
+      try {
+        const res = await fetch("/api/gallery", { cache: "no-store" })
+        if (!res.ok) throw new Error("Failed to fetch gallery")
+        const data: GalleryItem[] = await res.json()
+        setGalleryItems(data)
+      } catch (err) {
+        console.error("Gallery load error:", err)
+      }
+    }
+    loadGallery()
   }, [])
 
   useEffect(() => {
@@ -135,9 +147,9 @@ export default function DreamPartyPage() {
       <ServicesStrip />
 
       {loading ? (
-        <div className="px-6 py-10 text-center">Loading menu...</div>
+        <div style={{ padding: "40px 24px", textAlign: "center" }}>Loading menu...</div>
       ) : error ? (
-        <div className="px-6 py-10 text-center text-red-600">{error}</div>
+        <div style={{ padding: "40px 24px", textAlign: "center", color: "#ef4444" }}>{error}</div>
       ) : (
         <MenuSection
           categories={categories}
@@ -153,7 +165,7 @@ export default function DreamPartyPage() {
         />
       )}
 
-      <GallerySection />
+      <GallerySection items={galleryItems} />
       <ContactSection />
       <FounderSection />
       <Footer />
