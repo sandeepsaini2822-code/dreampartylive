@@ -6,6 +6,7 @@ export type MenuItem = {
   desc: string
   price: number
   img: string
+  available?: string
 }
 
 const SHEET_CSV_URL =
@@ -45,7 +46,7 @@ function csvToMenuItems(csv: string): MenuItem[] {
 
   if (lines.length < 2) return []
 
-  const headers = parseCSVLine(lines[0]).map((h) => h.trim())
+  const headers = parseCSVLine(lines[0]).map((h) => h.trim().toLowerCase())
 
   return lines
     .slice(1)
@@ -65,6 +66,7 @@ function csvToMenuItems(csv: string): MenuItem[] {
         desc: row.desc || "",
         price: Number(row.price || 0),
         img: row.img || "",
+        available: (row.available || "yes").toLowerCase(),
       }
     })
     .filter((item) => item.id && item.name)

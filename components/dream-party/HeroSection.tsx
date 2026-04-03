@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       style={{
-       minHeight: isMobile ? "92svh" : "100vh",
+        minHeight: isMobile ? "92svh" : "100vh",
         position: "relative",
         display: "flex",
         alignItems: "center",
@@ -47,8 +47,8 @@ export default function HeroSection() {
           textAlign: "center",
           position: "relative",
           zIndex: 2,
-          padding: `0 ${pagePad}px`,
-          paddingTop: isMobile ? 100 : isTablet ? 100 : 100,
+          paddingInline: pagePad,   // ✅ clean, explicit
+          paddingTop: 100,           // ✅ no redundant ternary
           width: "100%",
           maxWidth: 1200,
         }}

@@ -15,7 +15,6 @@ import Footer from "./Footer"
 import CartDrawer from "./CartDrawer"
 import PaymentModal from "./PaymentModal"
 
-
 export default function DreamPartyPage() {
   const { cart, add, remove, update, total, count, clear } = useCart()
 
@@ -64,6 +63,15 @@ export default function DreamPartyPage() {
 
     loadMenu()
   }, [])
+
+  useEffect(() => {
+    if (
+      activeCat !== "All" &&
+      !menuItems.some((item) => item.category === activeCat)
+    ) {
+      setActiveCat("All")
+    }
+  }, [menuItems, activeCat])
 
   const categories = useMemo(() => {
     const unique = Array.from(new Set(menuItems.map((item) => item.category)))

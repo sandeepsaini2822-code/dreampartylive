@@ -8,6 +8,7 @@ export type MenuItem = {
   desc: string;
   price: number;
   img: string;
+  available?: string;
 };
 
 export type CartItem = MenuItem & {
