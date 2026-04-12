@@ -397,16 +397,6 @@ export default function CartDrawer({
                   style={{ ...inputStyle, resize: "none" }}
                 />
 
-                <input
-                  type="text"
-                  placeholder="Pincode"
-                  value={customerPincode}
-                  onChange={(e) =>
-                    setCustomerPincode(e.target.value.replace(/\D/g, "").slice(0, 6))
-                  }
-                  style={inputStyle}
-                />
-
                 <div
                   style={{
                     color: G.textDim,

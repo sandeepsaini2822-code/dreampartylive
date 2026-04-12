@@ -29,7 +29,7 @@ export default function HeroSection() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          opacity: 0.58,
+          opacity: 0.68,
           filter: "saturate(0.7)",
         }}
       />

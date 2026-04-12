@@ -129,12 +129,21 @@ export default function ContactSection() {
     }, 2500);
   };
 
+  // Use separate padding properties — never mix shorthand `padding` with `paddingTop` etc.
+  const inputPaddingTop = 14;
+  const inputPaddingBottom = 14;
+  const inputPaddingLeft = isMobile ? 14 : 18;
+  const inputPaddingRight = isMobile ? 14 : 18;
+
   const inputStyle = {
     width: "100%",
     background: "linear-gradient(180deg, rgba(47,34,26,0.95) 0%, rgba(36,26,20,0.95) 100%)",
     border: "1px solid rgba(245,158,11,0.16)",
     color: G.text,
-    padding: isMobile ? "14px 14px" : "14px 18px",
+    paddingTop: inputPaddingTop,
+    paddingBottom: inputPaddingBottom,
+    paddingLeft: inputPaddingLeft,
+    paddingRight: inputPaddingRight,
     fontFamily: "Cormorant Garamond, serif",
     fontSize: isMobile ? "1rem" : "1.02rem",
     outline: "none",
@@ -155,7 +164,10 @@ export default function ContactSection() {
     <section
       id="contact"
       style={{
-        padding: `${sectionPadY}px ${pagePad}px`,
+        paddingTop: sectionPadY,
+        paddingBottom: sectionPadY,
+        paddingLeft: pagePad,
+        paddingRight: pagePad,
         background: G.dark,
       }}
     >
@@ -234,7 +246,10 @@ export default function ContactSection() {
                     display: "flex",
                     gap: isMobile ? 10 : 14,
                     alignItems: "flex-start",
-                    padding: isMobile ? "10px" : "12px 0",
+                    paddingTop: isMobile ? 10 : 12,
+                    paddingBottom: isMobile ? 10 : 12,
+                    paddingLeft: isMobile ? 10 : 0,
+                    paddingRight: isMobile ? 10 : 0,
                     borderRadius: isMobile ? 14 : 0,
                     background: isMobile ? "rgba(255,255,255,0.02)" : "transparent",
                   }}
@@ -309,9 +324,12 @@ export default function ContactSection() {
           <div
             style={{
               ...PANEL_SOFT,
-              padding: isMobile ? "20px 14px" : isTablet ? "28px 24px" : "42px 38px",
+              paddingTop: isMobile ? 20 : isTablet ? 28 : 42,
+              paddingBottom: isMobile ? 20 : isTablet ? 28 : 42,
+              paddingLeft: isMobile ? 14 : isTablet ? 24 : 38,
+              paddingRight: isMobile ? 14 : isTablet ? 24 : 38,
               width: "100%",
-              boxSizing: "border-box",
+              boxSizing: "border-box" as const,
             }}
           >
             <div
@@ -352,6 +370,7 @@ export default function ContactSection() {
               >
                 <input
                   type="date"
+                  placeholder="Date"
                   value={form.date}
                   onChange={handleChange("date")}
                   style={inputStyle}
@@ -382,6 +401,7 @@ export default function ContactSection() {
                 style={inputStyle}
               />
 
+              {/* textarea gets its own style — no shorthand `padding` mixed with paddingTop */}
               <textarea
                 placeholder="Special requests?"
                 value={form.specialRequest}
@@ -390,7 +410,6 @@ export default function ContactSection() {
                   ...inputStyle,
                   resize: "vertical",
                   minHeight: isMobile ? 110 : 120,
-                  paddingTop: 14,
                 }}
               />
 
